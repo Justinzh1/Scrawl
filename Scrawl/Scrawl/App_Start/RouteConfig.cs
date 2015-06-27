@@ -15,14 +15,14 @@ namespace Scrawl
 
             routes.MapRoute(
                 name: "Default",
-                url: "{controller}/{action}/{id}",
+                url: "",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
 
             routes.MapRoute(
-                name: "Dashboard",
-                url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                name: "Setup",
+                url: "setup",
+                defaults: new { controller = "UserSetup", action = "UserSetup", id = UrlParameter.Optional }
             );
         }
     }

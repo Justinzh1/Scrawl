@@ -29,7 +29,7 @@ textarea {
 .nav {
     color: white;
 }
- /* Bootstrap Override */
+/* Bootstrap Override */
 .navbar {
     padding-left: 15px;
     padding-right: 15px;
@@ -39,11 +39,11 @@ textarea {
 }
 
 .navbar-inverse .navbar-brand {
-  color: white;
+    color: white;
 }
 
 .navbar-inverse .navbar-nav > li > a {
-  color: white;
+    color: white;
 }
 
 .navbar-default .nav-pills > li > a {
@@ -70,4 +70,29 @@ textarea {
     padding-top: 70px;
     margin-top: 10px;
     border-radius: 5px;
+}
+
+.setup-container {
+    width: 100%;
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+.setup-header {
+    color: grey;
+    text-align: center;
+    font-size: 48pt;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.setup-textbox {
+    color: #F18D05;
+    text-align: center;
+    font-size: 48pt;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    text-align: center;
+    min-width: 500px;
 }
