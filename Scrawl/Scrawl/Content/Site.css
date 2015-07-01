@@ -96,3 +96,11 @@ textarea {
     text-align: center;
     min-width: 500px;
 }
+
+.form_wrapper form{
+	display:none;
+	background:#fff;
+}
+form.active{
+	display:block;
+}
