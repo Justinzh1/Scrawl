@@ -13,10 +13,5 @@ namespace Scrawl.Controllers
         {
             return View();
         }
-
-        public ActionResult AgeForm()
-        {
-            return View();
-        }
     }
 }

@@ -97,10 +97,23 @@ textarea {
     min-width: 500px;
 }
 
-.form_wrapper form{
-	display:none;
-	background:#fff;
+/* User Setup Form */
+.form-wrapper{
+    margin:0 auto;
 }
+
+.form_wrapper form{
+    display: none;
+}
+
 form.active{
-	display:block;
+    display: block;
+}
+
+form.name-form {
+    width: 100%;
+}
+
+form.email-form {
+    width: 100%;
 }

@@ -3,27 +3,33 @@
     Layout = "~/Views/Home/_LandingLayout.cshtml";
 }
 
-<div class="form_wrapper">
-    <form class="name-form active">
+<div id="form_wrapper" class="form_wrapper">
+    <form class="name-form active"> @* start of form because of "active" class *@
         <div class="setup-container">
-            <h1 class="setup-header">What is your full name?</h1>
-            <p class="setup-textbox">
-                <input type="text" class="setup-textbox" rel="age-form" />
-            </p>
-        </div>
-        <a href="~/Views/UserSetup/AgeForm.cshtml" class="linkform"><input type="submit" style="position: absolute; width: 1px; height: 1px; left: -9999px;" tabindex="-1" /></a>
-    </form>
-    <form class="age-form">
-        <div class="setup-container">
-            <h1 class="setup-header">How old are you?</h1>
+            <h1 class="setup-header">What's your full name?</h1>
             <p class="setup-textbox">
                 <input type="text" class="setup-textbox" />
             </p>
         </div>
-        <input class="linkform" type="submit" style="position: absolute; width: 1px; height: 1px; left: -9999px;" tabindex="-1" />
+        <input class="linkform" type="submit" style="position: absolute; width: 1px; height: 1px; left: -9999px;" tabindex="-1" id="email-form" />
+    </form>
+    <form class="email-form">
+        <div class="setup-container">
+            <h1 class="setup-header">What's your email address?</h1>
+            <p class="setup-textbox">
+                <input type="text" class="setup-textbox" />
+            </p>
+        </div>
+       <input class ="linkform" type="submit" style="position: absolute; width: 1px; height: 1px; left: -9999px;" tabindex="-1" />
     </form>
 </div>
 
+@* 
+~Form Transition Handling~
+    Starting form must have class="specific-form-class active" (see name-form).
+    The form's class must be referenced in the id field of the submit. Ex: we want name-form to transition to email-form, so "email-form" is in name-form's submit id
+    Forms are in chronological order. TODO: Make 'Back' button for form
+*@
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
 <script type="text/javascript">
     $(function () {
@@ -58,7 +64,7 @@
         */
         $linkform.bind('click', function (e) {
             var $link = $(this);
-            var target = $link.attr('rel');
+            var target = $link.attr('id');
             $currentForm.fadeOut(400, function () {
                 //remove class active from current form
                 $currentForm.removeClass('active');
@@ -97,4 +103,4 @@
                          e.preventDefault();
                      });
     });
-</script>
+</script> 
