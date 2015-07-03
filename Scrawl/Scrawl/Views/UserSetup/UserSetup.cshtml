@@ -4,11 +4,12 @@
 }
 
 <div id="form_wrapper" class="form_wrapper">
-    <form class="name-form active"> @* start of form because of "active" class *@
+    <form class="name-form active">
+        @* start of form because of "active" class *@
         <div class="setup-container">
             <h1 class="setup-header">What's your full name?</h1>
             <p class="setup-textbox">
-                <input type="text" class="setup-textbox" />
+                <input type="text" class="setup-textbox" autofocus />
             </p>
         </div>
         <input class="linkform" type="submit" style="position: absolute; width: 1px; height: 1px; left: -9999px;" tabindex="-1" id="email-form" />
@@ -17,18 +18,45 @@
         <div class="setup-container">
             <h1 class="setup-header">What's your email address?</h1>
             <p class="setup-textbox">
-                <input type="text" class="setup-textbox" />
+                <input type="text" class="setup-textbox" autofocus />
             </p>
         </div>
-       <input class ="linkform" type="submit" style="position: absolute; width: 1px; height: 1px; left: -9999px;" tabindex="-1" />
+        <input class="linkform" type="submit" style="position: absolute; width: 1px; height: 1px; left: -9999px;" tabindex="-1" id="create-password-form" />
     </form>
+    <form class="create-password-form">
+        <div class="setup-container">
+            <h1 class="setup-header">What do you want your password to be?</h1>
+            <p class="setup-textbox">
+                <input type="password" class="setup-textbox" autofocus />
+            </p>
+        </div>
+        <input class="linkform" type="submit" style="position: absolute; width: 1px; height: 1px; left: -9999px;" tabindex="-1" id="confirm-password-form" />
+    </form>
+    <form class="confirm-password-form">
+        <div class="setup-container">
+            <h1 class="setup-header">Type it again just in case.</h1>
+            <p class="setup-textbox">
+                <input type="password" class="setup-textbox" autofocus /> @* TODO: Add data authentication for password match *@
+            </p>
+        </div>
+        <input class="linkform" type="submit" style="position: absolute; width: 1px; height: 1px; left: -9999px;" tabindex="-1" id="thank-you-form" />
+    </form>
+    <form class="thank-you-form">
+        <h1 class="thank-you-header">Your account is ready to go! Now we'll ask about your schedule.</h1>
+        <div class="centered">
+            <a href="/" class="btn next-button" role="button">
+                @* TODO: Link to scheduler*@
+            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        </a>
+    </div>
+</form>
 </div>
 
-@* 
-~Form Transition Handling~
-    Starting form must have class="specific-form-class active" (see name-form).
-    The form's class must be referenced in the id field of the submit. Ex: we want name-form to transition to email-form, so "email-form" is in name-form's submit id
-    Forms are in chronological order. TODO: Make 'Back' button for form
+@*
+    ~Form Transition Handling~
+        Starting form must have class="specific-form-class active" (see name-form).
+        The form's class must be referenced in the id field of the submit. Ex: we want name-form to transition to email-form, so "email-form" is in name-form's submit id
+        Forms are in chronological order. TODO: Make 'Back' button for form
 *@
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
 <script type="text/javascript">
@@ -80,6 +108,7 @@
                                  $currentForm.addClass('active');
                                  //show the new form
                                  $currentForm.fadeIn(400);
+                                 $currentForm.find('input').focus();
                              });
             });
             e.preventDefault();

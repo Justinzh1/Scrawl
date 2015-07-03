@@ -72,6 +72,11 @@ textarea {
     border-radius: 5px;
 }
 
+.centered {
+    text-align: center;
+}
+
+/* User Setup Form */
 .setup-container {
     width: 100%;
     padding-top: 100px;
@@ -84,6 +89,17 @@ textarea {
     font-size: 48pt;
     margin-left: auto;
     margin-right: auto;
+    font-family: Roboto Condensed;
+}
+
+.thank-you-header {
+    padding-top: 100px;
+    color: grey;
+    text-align: center;
+    font-size: 48pt;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: Roboto Condensed;
 }
 
 .setup-textbox {
@@ -97,7 +113,6 @@ textarea {
     min-width: 500px;
 }
 
-/* User Setup Form */
 .form-wrapper{
     margin:0 auto;
 }
@@ -116,4 +131,31 @@ form.name-form {
 
 form.email-form {
     width: 100%;
+}
+
+form.create-password-form {
+    width: 100%;
+}
+
+form.confirm-password-form {
+    width: 100%;
+}
+
+.next-button {
+    height: 100px;
+    width: 300px;
+    background-color: white;
+    border-color: grey;
+    color: grey;
+    font-size: 48px;
+    padding-top: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    border: 5px solid #808080;
+}
+
+.next-button:hover {
+    color: #F18D05;
+    border: 5px solid #F18D05;
 }
