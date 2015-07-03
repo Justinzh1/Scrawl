@@ -3,7 +3,10 @@
     Layout = "~/Views/Home/_LandingLayout.cshtml";
 }
 
-<div id="form_wrapper" class="form_wrapper"> @* TODO: Autofocus all text boxes *@
+<div class="centered"><span class="glyphicon glyphicon-user centered-glyphicon" aria-hidden="true"></span></div>
+
+
+<div id="form_wrapper" class="form_wrapper"> @* TODO: Autofocus all text boxes *@ @* TODO: Make back buttons *@
     <form class="name-form active">@* start of form because of "active" class *@
         <div class="setup-container">
             <h1 class="setup-header">What's your full name?</h1>
@@ -37,6 +40,16 @@
             <p class="setup-textbox">
                 <input type="password" class="setup-textbox" autofocus /> @* TODO: Add data authentication for password match *@
             </p>
+        </div>
+        <input class="linkform" type="submit" style="position: absolute; width: 1px; height: 1px; left: -9999px;" tabindex="-1" id="school-form" />
+    </form>
+    <form class="school-form">
+        <div class="setup-container">
+            <h1 class="setup-header">Which school do you currently attend?</h1>
+            <p class="setup-textbox">
+                <input type="text" class="setup-textbox" autofocus />
+            </p>
+            <a class="linkform" id="thank-you-form"><div class="textbox-alternative">(Not a student? Skip this step by clicking here.)</div></a>
         </div>
         <input class="linkform" type="submit" style="position: absolute; width: 1px; height: 1px; left: -9999px;" tabindex="-1" id="thank-you-form" />
     </form>

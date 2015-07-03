@@ -65,7 +65,6 @@ textarea {
     text-align: center;
     padding-top: 10px;
     margin-top: 10px;
-    border-radius: 5px;
 }
 
 .logo-splash {
@@ -84,7 +83,7 @@ textarea {
 /* User Setup Form */
 .setup-container {
     width: 100%;
-    padding-top: 100px;
+    padding-top: 50px;
     padding-bottom: 100px;
 }
 
@@ -115,7 +114,7 @@ textarea {
     margin-right: auto;
     margin-top: 20px;
     text-align: center;
-    min-width: 500px;
+    width: 600px;
 }
 
 .form_wrapper{
@@ -172,7 +171,7 @@ form.confirm-password-form {
     font-size: 96px;
     margin-left: auto;
     margin-right: auto;
-    padding: 0px;
+    padding-top: 20px;
     text-align: center;
 }
 
@@ -193,6 +192,17 @@ form.confirm-password-form {
     color: #F18D05;
 }
 
+.big-search-box {
+    color: #F18D05;
+    text-align: center;
+    font-size: 48pt;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    text-align: center;
+    min-width: 500px;
+}
+
 .scheduler-search-help {
     color: grey;
     font-size: 24px;
@@ -209,4 +219,37 @@ form.confirm-password-form {
     margin-top: 20px;
     text-align: center;
     min-width: 90%;
+}
+
+.textbox-alternative {
+    color: #F18D05;
+    font-size: 36px;
+    text-align: center;
+}
+
+.textbox-alternative:hover {
+    color: grey;
+}
+
+.orange-link {
+    color: #F18D05;
+}
+
+.orange-link:hover {
+    color: grey;
+}
+
+.large-not-found {
+    color: #F18D05;
+    font-size: 48px;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.large-not-found-icon {
+    color: #F18D05;
+    font-size: 48px;
+    text-align: center;
+    padding-top: 50px;
 }

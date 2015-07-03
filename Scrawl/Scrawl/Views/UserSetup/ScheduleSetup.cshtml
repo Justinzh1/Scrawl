@@ -1,12 +1,14 @@
 ﻿@{
     Layout = "~/Views/Home/_LandingLayout.cshtml";
 }
+<div class="centered"><span class="glyphicon glyphicon-calendar centered-glyphicon" aria-hidden="true"></span></div>
 
-<div id="form_wrapper" class="form_wrapper"> @* TODO: Autofocus all text boxes *@
-    <form class="scheduler-greeting active"> 
+<div id="form_wrapper" class="form_wrapper">
+    @* TODO: Autofocus all text boxes *@ @* TODO: Make back buttons *@
+    <form class="scheduler-greeting active">
         @* start of form because of "active" class *@
         <div class="scheduler-greeting">
-            <span class="glyphicon glyphicon-calendar centered-glyphicon" aria-hidden="true"></span>
+            
             <div>
                 Your notes. Your schedule.
             </div>
@@ -15,20 +17,65 @@
             </a>
         </div>
     </form>
+
+    @* Class Search *@
     <form class="class-search-form">
-        <div class="centered"><span class="glyphicon glyphicon-calendar centered-glyphicon" aria-hidden="true"></span></div>
+        @* TODO: Make this actually work *@
+        
         <div class="scheduler-container">
             <h1 class="setup-header">Let's see if we know about your class already.</h1>
-            <p class="setup-textbox">
-                <input type="text" class="scheduler-textbox" autofocus />
+            <p class="big-search-box">
+                <input type="text" class="scheduler-textbox" id="textbox" />
             </p>
+            <div class="textbox-alternative linkform" id="class-name-input"><a class="orange-link">(Or tell us about your class manually by clicking here.)</a></div>
         </div>
         <div class="scheduler-search-help">
             <span class="glyphicon glyphicon-question-sign help-icon-inline" aria-hidden="true">
-            </span>Go ahead and enter a course name, teacher name, room number, or any combination of the three.
+            </span>Go ahead and enter a course name, teacher's last name, school name, or any combination of the three.
         </div>
 
-        <input class="linkform" type="submit" style="position: absolute; width: 1px; height: 1px; left: -9999px;" tabindex="-1" id="" />
+        <input class="linkform" type="submit" style="position: absolute; width: 1px; height: 1px; left: -9999px;" tabindex="-1" id="class-search-results-form" />
+    </form>
+    <form class="class-search-results-form"> @* TODO: Make this actually display results *@
+        
+        <div class="scheduler-container">
+            <h1 class="setup-header">Here's what we found.</h1>
+            <div class="class-search-result">
+                <div class="centered"><span class="glyphicon glyphicon-remove large-not-found" aria-hidden="true"></span></div>
+                
+                <div class="large-not-found">Nothing, unfortunately.</div>
+                <a class="linkform" id="class-name-input">
+                    <div class="scheduler-search-help">
+                        <span class="glyphicon glyphicon-question-sign help-icon-inline" aria-hidden="true">
+                        </span>Click here to tell us about your class manually.
+                    </div>
+                </a>
+            </div>
+        </div>
+        <input class="linkform" type="submit" style="position: absolute; width: 1px; height: 1px; left: -9999px;" tabindex="-1"/>
+    </form>
+    
+    @* Manual Class Input *@
+    <form class="class-name-input">
+        
+        <div class="scheduler-container">
+            <h1 class="setup-header">What's your course called?</h1>
+            <p class="setup-textbox">
+                <input type="text" class="scheduler-textbox" id="textbox" />
+            </p>
+        </div>
+        <input class="linkform" type="submit" style="position: absolute; width: 1px; height: 1px; left: -9999px;" tabindex="-1" id="teacher-input" />
+    </form>
+
+    <form class="teacher-input">
+        
+        <div class="scheduler-container">
+            <h1 class="setup-header">What's your teacher's/professor's/instructor's last name?</h1>
+            <p class="setup-textbox">
+                <input type="text" class="scheduler-textbox" id="textbox" />
+            </p>
+        </div>
+        <input class="linkform" type="submit" style="position: absolute; width: 1px; height: 1px; left: -9999px;" tabindex="-1" />
     </form>
 </div>
 
@@ -112,4 +159,5 @@
                          e.preventDefault();
                      });
     });
+
 </script> 
