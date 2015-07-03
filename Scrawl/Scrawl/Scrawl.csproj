@@ -228,6 +228,7 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Home\_LandingLayout.cshtml" />
     <Content Include="Views\UserSetup\UserSetup.cshtml" />
+    <Content Include="Views\UserSetup\ScheduleSetup.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

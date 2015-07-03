@@ -13,5 +13,11 @@ namespace Scrawl.Controllers
         {
             return View();
         }
+
+        // GET: ScheduleSetup
+        public ActionResult ScheduleSetup()
+        {
+            return View();
+        }
     }
 }

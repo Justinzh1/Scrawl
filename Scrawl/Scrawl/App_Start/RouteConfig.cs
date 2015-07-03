@@ -24,6 +24,12 @@ namespace Scrawl
                 url: "setup",
                 defaults: new { controller = "UserSetup", action = "UserSetup", id = UrlParameter.Optional }
             );
+
+            routes.MapRoute(
+                name: "Scheduler",
+                url: "scheduler",
+                defaults: new { controller = "UserSetup", action = "ScheduleSetup", id = UrlParameter.Optional }
+            );
         }
     }
 }
