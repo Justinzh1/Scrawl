@@ -1,26 +1,36 @@
-﻿@{
+﻿@model Scrawl.Models.RegisterViewModel
+
+@{
     ViewBag.Title = "Setup";
     Layout = "~/Views/Home/_LandingLayout.cshtml";
 }
 
 <div class="centered"><span class="glyphicon glyphicon-user centered-glyphicon" aria-hidden="true"></span></div>
-
-
-<div id="form_wrapper" class="form_wrapper"> @* TODO: Autofocus all text boxes *@ @* TODO: Make back buttons *@
-    <form class="name-form active">@* start of form because of "active" class *@
+<div id="form_wrapper" class="form_wrapper">
+    @* TODO: Autofocus all text boxes *@ @* TODO: Make back buttons *@
+    <form class="name-form active">
+        @* start of form because of "active" class *@
         <div class="setup-container">
             <h1 class="setup-header">What's your full name?</h1>
             <p class="setup-textbox">
-                <input type="text" class="setup-textbox" autofocus />
+                @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                {
+                    @Html.TextBoxFor(m => m.Name, new { @class = "setup-textbox" })
+                    <input class="linkform" type="submit" style="position: absolute; width: 1px; height: 1px; left: -9999px;" tabindex="-1" id="email-form" />
+                }
             </p>
         </div>
-        <input class="linkform" type="submit" style="position: absolute; width: 1px; height: 1px; left: -9999px;" tabindex="-1" id="email-form" />
+
     </form>
     <form class="email-form">
         <div class="setup-container">
             <h1 class="setup-header">What's your email address?</h1>
             <p class="setup-textbox">
-                <input type="text" class="setup-textbox" autofocus />
+                @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                {
+                    @Html.TextBoxFor(m => m.Email, new { @class = "setup-textbox" })
+                    <input class="linkform" type="submit" style="position: absolute; width: 1px; height: 1px; left: -9999px;" tabindex="-1" id="create-password-form" />
+                }
             </p>
         </div>
         <input class="linkform" type="submit" style="position: absolute; width: 1px; height: 1px; left: -9999px;" tabindex="-1" id="create-password-form" />
@@ -29,7 +39,11 @@
         <div class="setup-container">
             <h1 class="setup-header">What do you want your password to be?</h1>
             <p class="setup-textbox">
-                <input type="password" class="setup-textbox" autofocus />
+                @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                {
+                    @Html.PasswordFor(m => m.Password, new { @class = "setup-textbox" })
+                    <input class="linkform" type="submit" style="position: absolute; width: 1px; height: 1px; left: -9999px;" tabindex="-1" id="confirm-password-form" />
+                }
             </p>
         </div>
         <input class="linkform" type="submit" style="position: absolute; width: 1px; height: 1px; left: -9999px;" tabindex="-1" id="confirm-password-form" />
@@ -38,7 +52,11 @@
         <div class="setup-container">
             <h1 class="setup-header">Type it again just in case.</h1>
             <p class="setup-textbox">
-                <input type="password" class="setup-textbox" autofocus /> @* TODO: Add data authentication for password match *@
+                @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                {
+                    @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "setup-textbox" })
+                    <input class="linkform" type="submit" style="position: absolute; width: 1px; height: 1px; left: -9999px;" tabindex="-1" id="school-form" />
+                } @* TODO: Add data authentication for password match *@
             </p>
         </div>
         <input class="linkform" type="submit" style="position: absolute; width: 1px; height: 1px; left: -9999px;" tabindex="-1" id="school-form" />
@@ -47,7 +65,11 @@
         <div class="setup-container">
             <h1 class="setup-header">Which school do you currently attend?</h1>
             <p class="setup-textbox">
-                <input type="text" class="setup-textbox" autofocus />
+                @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                {
+                    @Html.PasswordFor(m => m.School, new { @class = "setup-textbox" })
+                    <input class="linkform" type="submit" style="position: absolute; width: 1px; height: 1px; left: -9999px;" tabindex="-1" id="thank-you-form" />
+                }
             </p>
             <a class="linkform" id="thank-you-form"><div class="textbox-alternative">(Not a student? Skip this step by clicking here.)</div></a>
         </div>
@@ -57,10 +79,10 @@
         <h1 class="thank-you-header">Your account is ready to go! Now we'll ask about your schedule.</h1>
         <div class="centered">
             <a href="/scheduler" class="btn next-button" role="button">
-            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-        </a>
-    </div>
-</form>
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+            </a>
+        </div>
+    </form>
 </div>
 
 @*
@@ -143,4 +165,4 @@
                          e.preventDefault();
                      });
     });
-</script> 
+</script>

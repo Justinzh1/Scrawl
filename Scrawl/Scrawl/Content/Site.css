@@ -114,7 +114,7 @@ textarea {
     margin-right: auto;
     margin-top: 20px;
     text-align: center;
-    width: 600px;
+    min-width: 600px;
 }
 
 .form_wrapper{

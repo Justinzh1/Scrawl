@@ -65,6 +65,9 @@ namespace Scrawl.Models
     public class RegisterViewModel
     {
         [Required]
+        public string Name { get; set; }
+
+        [Required]
         [EmailAddress]
         [Display(Name = "Email")]
         public string Email { get; set; }
@@ -79,6 +82,9 @@ namespace Scrawl.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+        [Required]
+        public string School { get; set; }
     }
 
     public class ResetPasswordViewModel
