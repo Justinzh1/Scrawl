@@ -22,14 +22,32 @@ namespace Scrawl
             routes.MapRoute(
                 name: "Setup",
                 url: "setup",
-                defaults: new { controller = "UserSetup", action = "UserSetup", id = UrlParameter.Optional }
+                defaults: new { controller = "Users", action = "UserSetup", id = UrlParameter.Optional }
             );
 
             routes.MapRoute(
                 name: "Scheduler",
                 url: "scheduler",
-                defaults: new { controller = "UserSetup", action = "ScheduleSetup", id = UrlParameter.Optional }
+                defaults: new { controller = "Users", action = "ScheduleSetup", id = UrlParameter.Optional }
             );
+
+            routes.MapRoute(
+               name: "Users",
+               url: "users",
+               defaults: new { controller = "Users", action = "Index", id = UrlParameter.Optional }
+           );
+
+            routes.MapRoute(
+               name: "Create User",
+               url: "users/create",
+               defaults: new { controller = "Users", action = "Create", id = UrlParameter.Optional }
+           );
+
+            routes.MapRoute(
+               name: "Your Notebook",
+               url: "notebook",
+               defaults: new { controller = "Notebooks", action = "Notebook", id = UrlParameter.Optional }
+           );
         }
     }
 }

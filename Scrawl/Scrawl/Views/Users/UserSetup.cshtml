@@ -1,4 +1,4 @@
-﻿@model Scrawl.Models.RegisterViewModel
+﻿@model Scrawl.Models.UserModel
 
 @{
     ViewBag.Title = "Setup";
@@ -14,10 +14,11 @@
             <h1 class="setup-header">What's your full name?</h1>
             <p class="setup-textbox">
                 @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-                {
-                    @Html.TextBoxFor(m => m.Name, new { @class = "setup-textbox" })
-                    <input class="linkform" type="submit" style="position: absolute; width: 1px; height: 1px; left: -9999px;" tabindex="-1" id="email-form" />
+                { 
+                    @Html.TextBoxFor(m => m.FirstName, new { @class = "setup-textbox" }) @* TODO: Parse first/last names from field *@
                 }
+                <input class="linkform" type="submit" style="position: absolute; width: 1px; height: 1px; left: -9999px;" tabindex="-1" id="email-form" />
+
             </p>
         </div>
 
@@ -67,7 +68,7 @@
             <p class="setup-textbox">
                 @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
                 {
-                    @Html.PasswordFor(m => m.School, new { @class = "setup-textbox" })
+                    @Html.TextBoxFor(m => m.SchoolName, new { @class = "setup-textbox" })
                     <input class="linkform" type="submit" style="position: absolute; width: 1px; height: 1px; left: -9999px;" tabindex="-1" id="thank-you-form" />
                 }
             </p>

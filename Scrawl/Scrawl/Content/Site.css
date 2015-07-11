@@ -31,8 +31,8 @@ textarea {
 }
 
 .copyright-footer {
-    padding-left: 5%;
-    font-size: 24px;
+    padding-left: 1%;
+    font-size: 12px;
 }
 /* Bootstrap Override */
 .navbar {
@@ -117,15 +117,15 @@ textarea {
     min-width: 600px;
 }
 
-.form_wrapper{
-    margin:0 auto;
+.form_wrapper {
+    margin: 0 auto;
 }
 
-.form_wrapper form{
-    display: none;
-}
+    .form_wrapper form {
+        display: none;
+    }
 
-form.active{
+form.active {
     display: block;
 }
 
@@ -159,10 +159,10 @@ form.confirm-password-form {
     border: 5px solid #808080;
 }
 
-.next-button:hover {
-    color: #F18D05;
-    border: 5px solid #F18D05;
-}
+    .next-button:hover {
+        color: #F18D05;
+        border: 5px solid #F18D05;
+    }
 
 /* Scheduler */
 
@@ -177,7 +177,7 @@ form.confirm-password-form {
 
 .scheduler-greeting {
     text-align: center;
-    font-size:  144px;
+    font-size: 144px;
     color: grey;
     padding-bottom: 100px;
 }
@@ -227,17 +227,17 @@ form.confirm-password-form {
     text-align: center;
 }
 
-.textbox-alternative:hover {
-    color: grey;
-}
+    .textbox-alternative:hover {
+        color: grey;
+    }
 
 .orange-link {
     color: #F18D05;
 }
 
-.orange-link:hover {
-    color: grey;
-}
+    .orange-link:hover {
+        color: grey;
+    }
 
 .large-not-found {
     color: #F18D05;
@@ -253,3 +253,55 @@ form.confirm-password-form {
     text-align: center;
     padding-top: 50px;
 }
+
+/* Vertical Navbar (File Browser) */
+
+.vert-navbar-container {
+    background-color: grey;
+    width: 100px;
+    height: 100%;
+    display: block;
+}
+
+.profile-pic {
+    height: 100px;
+    width: 100px;
+    background-color: #F18D05;
+}
+
+.vert-navbar-body {
+    height: 100%;
+    width: 100px;
+    background-color: grey;
+    position: absolute;
+}
+
+.circle-button {
+    border-radius: 50%;
+    background-color: #F18D05;
+    height: 80px;
+    width: 80px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    color: white;
+    font-size: 36px;
+    text-align: center;
+    padding-top: 12px;
+}
+
+.settings-nav-button {
+    color: white;
+    font-size: 24px;
+    width: 100px;
+    height: 50px;
+    position: relative;
+    margin-top: 10px;
+    
+}
+
+    .settings-nav-button :hover {
+        background-color: #a09e9e;
+        width: 100px;
+        height: 50px;
+    }

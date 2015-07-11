@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Scrawl</title>
+    @Styles.Render("~/Content/css")
+
+</head>
+<body style="padding: 0; margin: 0;">
+    <div class="file-browser-container">
+        <div class="vert-navbar-container">
+            <div class="profile-pic"><img src="~/Graphics/profilePic-small.jpg" /></div>
+            <div class="vert-navbar-body">
+                <div class="centered">
+                    <div class="circle-button">Ph</div>
+                    <div class="circle-button">En</div>
+                    <div class="circle-button">CS</div>
+                    <div class="circle-button">Calc</div>
+                    <a href="/scheduler">
+                        <div class="settings-nav-button">
+                            <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
+                        </div>
+                    </a>
+                    <div class="settings-nav-button"> @* TODO: Link to settings page *@
+                        <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @* <div class="container body-content">*@ @*We don't want this because we probably want the body to fit the width of the page and look minimalist*@
+        @RenderBody()
+        @*</div>*@
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
