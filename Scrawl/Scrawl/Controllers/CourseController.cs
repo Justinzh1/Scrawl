@@ -10,115 +10,107 @@ using Scrawl.Models;
 
 namespace Scrawl.Controllers
 {
-    public class NotebooksController : Controller
+    public class CourseController : Controller
     {
         private NotebookDBContext db = new NotebookDBContext();
 
-        // GET: Notebook
+        // GET: Course
         public ActionResult Index()
         {
-            return View(db.Notebooks.ToList());
+            return View(db.CourseModels.ToList());
         }
 
-        public ActionResult Notebook()
-        {
-            var model = new UserModel();
-            var courses = new Course
-            model.CourseList = 
-            return View(model);
-        }
-
-        // GET: Notebook/Details/5
+        // GET: Course/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            NotebookModel notebookModel = db.Notebooks.Find(id);
-            if (notebookModel == null)
+            CourseModel courseModel = db.CourseModels.Find(id);
+            if (courseModel == null)
             {
                 return HttpNotFound();
             }
-            return View(notebookModel);
+            return View(courseModel);
         }
 
-        // GET: Notebook/Create
+        // GET: Course/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Notebook/Create
+        // POST: Course/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID")] NotebookModel notebookModel)
+        public ActionResult Create([Bind(Include = "ID,Name,Teacher,School")] CourseModel courseModel)
         {
             if (ModelState.IsValid)
             {
-                db.Notebooks.Add(notebookModel);
+                db.CourseModels.Add(courseModel);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(notebookModel);
+            return View(courseModel);
         }
 
-        // GET: Notebook/Edit/5
+        // GET: Course/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            NotebookModel notebookModel = db.Notebooks.Find(id);
-            if (notebookModel == null)
+            CourseModel courseModel = db.CourseModels.Find(id);
+            if (courseModel == null)
             {
                 return HttpNotFound();
             }
-            return View(notebookModel);
+            return View(courseModel);
         }
 
-        // POST: Notebook/Edit/5
+        // POST: Course/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID")] NotebookModel notebookModel)
+        public ActionResult Edit([Bind(Include = "ID,Name,Teacher,School")] CourseModel courseModel)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(notebookModel).State = EntityState.Modified;
+                db.Entry(courseModel).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(notebookModel);
+            return View(courseModel);
         }
 
-        // GET: Notebook/Delete/5
+        // GET: Course/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            NotebookModel notebookModel = db.Notebooks.Find(id);
-            if (notebookModel == null)
+            CourseModel courseModel = db.CourseModels.Find(id);
+            if (courseModel == null)
             {
                 return HttpNotFound();
             }
-            return View(notebookModel);
+            return View(courseModel);
         }
 
-        // POST: Notebook/Delete/5
+        // POST: Course/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            NotebookModel notebookModel = db.Notebooks.Find(id);
-            db.Notebooks.Remove(notebookModel);
+            CourseModel courseModel = db.CourseModels.Find(id);
+            db.CourseModels.Remove(courseModel);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

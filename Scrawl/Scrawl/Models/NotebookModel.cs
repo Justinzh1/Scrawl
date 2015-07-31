@@ -11,10 +11,11 @@ namespace Scrawl.Models
     public class NotebookModel
     {
         public int ID { get; set; }
-        public UserModel user { get; set; } // TODO: Automatically set to user that's currently logged in
     }
     public class NotebookDBContext : DbContext
     {
         public DbSet<NotebookModel> Notebooks { get; set; }
+
+        public System.Data.Entity.DbSet<Scrawl.Models.CourseModel> CourseModels { get; set; }
     }
 }

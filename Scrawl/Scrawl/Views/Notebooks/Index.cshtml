@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<Scrawl.Models.NotebookModel>
 
 @{
-    Layout = null;
+    Layout = "~/Views/Home/_LandingLayout.cshtml";
 }
 
 <!DOCTYPE html>
@@ -13,15 +13,26 @@
 </head>
 <body>
     <p>
-        @Html.ActionLink("Create New", "Create")
+        <a href="/notebooks/create">Create New</a>
     </p>
     <table class="table">
         <tr>
-            <th></th>
+            <th>
+                @Html.DisplayNameFor(model => model.ID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.user.Email)
+            </th>
         </tr>
     
     @foreach (var item in Model) {
         <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.user.Email)
+            </td>
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
                 @Html.ActionLink("Details", "Details", new { id=item.ID }) |

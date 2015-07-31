@@ -13,7 +13,7 @@ namespace Scrawl.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201507100113164_InitialCreate"; }
+            get { return "201507252218096_InitialCreate"; }
         }
         
         string IMigrationMetadata.Source

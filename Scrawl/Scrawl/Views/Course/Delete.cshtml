@@ -1,4 +1,4 @@
-﻿@model Scrawl.Models.UserModel
+﻿@model Scrawl.Models.CourseModel
 
 @{
     ViewBag.Title = "Delete";
@@ -9,39 +9,31 @@
 
 <h3>Are you sure you want to delete this?</h3>
 <div>
-    <h4>User</h4>
+    <h4>CourseModel</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.LastName)
+            @Html.DisplayNameFor(model => model.Name)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.LastName)
+            @Html.DisplayFor(model => model.Name)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Email)
+            @Html.DisplayNameFor(model => model.Teacher)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Email)
+            @Html.DisplayFor(model => model.Teacher)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.IsStudent)
+            @Html.DisplayNameFor(model => model.School)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.IsStudent)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.SchoolName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.SchoolName)
+            @Html.DisplayFor(model => model.School)
         </dd>
 
     </dl>

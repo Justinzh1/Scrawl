@@ -13,10 +13,12 @@ namespace Scrawl.Models
         public int ID { get; set; }
         public string Name { get; set; }
         public TeacherModel Teacher { get; set; }
-        public SchoolModel School { get; set; }
+        public SchoolModel School { get; set; } // TODO: Create SchoolObject class
+        // TODO: EventObject
+        public bool isPublic { get; set; }
     }
     public class CourseDBContext : DbContext
     {
-        public DbSet<CourseModel> Users { get; set; }
+        public DbSet<CourseModel> Courses { get; set; }
     }
 }

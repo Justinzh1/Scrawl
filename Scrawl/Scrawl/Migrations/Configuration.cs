@@ -5,15 +5,14 @@ namespace Scrawl.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<Scrawl.Models.UserDBContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<Scrawl.Models.CourseDBContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
-            ContextKey = "Scrawl.Models.UserDBContext";
         }
 
-        protected override void Seed(Scrawl.Models.UserDBContext context)
+        protected override void Seed(Scrawl.Models.CourseDBContext context)
         {
             //  This method will be called after migrating to the latest version.
 

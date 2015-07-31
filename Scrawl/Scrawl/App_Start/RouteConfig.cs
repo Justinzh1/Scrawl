@@ -48,6 +48,30 @@ namespace Scrawl
                url: "notebook",
                defaults: new { controller = "Notebooks", action = "Notebook", id = UrlParameter.Optional }
            );
+
+            routes.MapRoute(
+               name: "Notebooks",
+               url: "notebooks",
+               defaults: new { controller = "Notebooks", action = "Index", id = UrlParameter.Optional }
+           );
+
+            routes.MapRoute(
+               name: "Create Notebook",
+               url: "notebooks/create",
+               defaults: new { controller = "Notebooks", action = "Create", id = UrlParameter.Optional }
+           );
+
+            routes.MapRoute(
+               name: "Courses",
+               url: "courses",
+               defaults: new { controller = "Course", action = "Index", id = UrlParameter.Optional }
+           );
+
+            routes.MapRoute(
+               name: "Create Course",
+               url: "courses/create",
+               defaults: new { controller = "Course", action = "Create", id = UrlParameter.Optional }
+           );
         }
     }
 }

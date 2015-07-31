@@ -158,15 +158,16 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Controllers\CourseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\NotebooksController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201507100113164_InitialCreate.cs" />
-    <Compile Include="Migrations\201507100113164_InitialCreate.Designer.cs">
-      <DependentUpon>201507100113164_InitialCreate.cs</DependentUpon>
+    <Compile Include="Migrations\201507252218096_InitialCreate.cs" />
+    <Compile Include="Migrations\201507252218096_InitialCreate.Designer.cs">
+      <DependentUpon>201507252218096_InitialCreate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\CourseModel.cs" />
@@ -237,9 +238,15 @@
     <Content Include="Views\Notebooks\Index.cshtml" />
     <Content Include="Views\Notebooks\Notebook.cshtml" />
     <Content Include="Views\Shared\_FileBrowserLayout.cshtml" />
+    <Content Include="Views\Course\Create.cshtml" />
+    <Content Include="Views\Course\Delete.cshtml" />
+    <Content Include="Views\Course\Details.cshtml" />
+    <Content Include="Views\Course\Edit.cshtml" />
+    <Content Include="Views\Course\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="obj\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -249,8 +256,8 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201507100113164_InitialCreate.resx">
-      <DependentUpon>201507100113164_InitialCreate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201507252218096_InitialCreate.resx">
+      <DependentUpon>201507252218096_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

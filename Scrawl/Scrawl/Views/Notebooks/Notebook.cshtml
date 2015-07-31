@@ -1,6 +1,4 @@
-﻿@model Scrawl.Models.NotebookModel
-
-@{
+﻿@{
     ViewBag.Title = "Your Notebook";
     Layout = "~/Views/Shared/_FileBrowserLayout.cshtml";
 }
@@ -10,10 +8,194 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>@ViewBag.Title</title>
+    <title>@ViewBag.Title - Scrawl</title>
 </head>
-<body>
-    <div> 
+<body style="margin: 0; padding: 0; height: 0; width: 0;">
+
+
+    <img src="~/Graphics/profilePic-small.jpg" />
+    @* TODO: Fill in with default / user profile pic *@
+    <div class="vert-navbar-body" id="vert-navbar">
+        <div class="centered">
+            @* TODO: Fill in with class data stored in User database *@
+
+            @foreach (var item in Model)
+            {
+                <a class="linkform" id="group1"><div class="circle-button">@item.FirstName.Substring(0, 2)</div></a>
+            }
+
+            <a href="/scheduler" class="settings-nav-button">
+                <div class="settings-nav-button">
+                    <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
+                </div>
+            </a>
+            <a href="" class="settings-nav-button">
+                @* TODO: Link to settings page *@
+                <div class="settings-nav-button">
+                    <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <div class="form_wrapper" id="form_wrapper" style="float: none; display: inline-block; padding-left: 100px">
+        @* TODO *@
+        <form class="notebook-no-selection active">
+            <div class="add-item-container centered container">
+                <div class="row">
+                    <a class=""><div class="circle-button-horizontal col-md-1"><span class="glyphicon glyphicon-plus button-glphyicon" aria-hidden="true"></span></div></a>
+                    <div class="circle-button-horizontal col-md-1"><span class="glyphicon glyphicon-upload button-glphyicon" aria-hidden="true"></span></div>
+                    <div class="circle-button-horizontal col-md-1"><span class="glyphicon glyphicon-edit button-glphyicon" aria-hidden="true"></span></div>
+                </div>
+            </div>
+        </form>
+        <form class="group1" style="display: inline-block; float: left; position: relative;">
+            <div class="browser-header">
+                <div class="circle-label">Ph</div>
+                <div class="browser-title">
+                    Physics
+                </div> @* TODO *@
+                <div class="info-container">
+                    Teacher: Fowler<br />
+                    School: Skyline
+                </div>
+            </div>
+
+            <div class="file-browser-container container">
+                @* TODO: Detect portrait vs. landscape *@
+                <div class="row">
+                    <div class="class-folder col-md-1">
+                        <div class="item-label">
+                            Low Poly Landscape
+                        </div>
+                        <div class="item-preview">
+                            <img src="~/Graphics/Low Poly Landscape.jpg" class="preview-image-landscape" />
+                        </div>
+                    </div>
+                    <div class="class-folder col-md-1">
+                        <div class="item-label">
+                            Low Poly Sunset
+                        </div>
+                        <div class="item-preview"><img src="~/Graphics/Low Poly Sunset.jpg" class="preview-image-landscape" /></div>
+                    </div>
+                    <div class="class-folder col-md-1">
+                        <div class="item-label">
+                            profilePic
+                        </div>
+                        <div class="item-preview"><img src="~/Graphics/profilePic.jpg" class="preview-image-landscape" /></div>
+                    </div>
+                    <div class="class-folder col-md-1">
+                        <div class="item-label">
+                            Word Document
+                        </div>
+                        <div class="item-preview"><div class="no-preview-file"><span class="glyphicon glyphicon-file" aria-hidden="true"></span></div></div>
+                    </div>
+                    <div class="class-folder col-md-1">
+                        <div class="item-label">
+                            Buildings
+                        </div>
+                        <div class="item-preview"><img src="~/Graphics/buildings.jpg" class="preview-image-portrait" /></div>
+                    </div>
+                    <div class="class-folder col-md-1">
+                        <div class="item-label">
+
+                        </div>
+                        <div class="item-preview"></div>
+                    </div>
+                    <div class="class-folder col-md-1">
+                        <div class="item-label">
+
+                        </div>
+                        <div class="item-preview"></div>
+                    </div>
+                </div>
+            </div>
+        </form>
     </div>
 </body>
 </html>
+
+@*
+    THIS IS A TWEAKED VERSION FROM USERSETUP AND SCHEDULER
+
+    ~Form Transition Handling~
+        Starting form must have class="specific-form-class active" (see name-form).
+        The form's class must be referenced in the id field of the submit. Ex: we want name-form to transition to email-form, so "email-form" is in name-form's submit id
+        Forms are in chronological order. TODO: Make 'Back' button for form
+*@
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+<script type="text/javascript">
+    $(function () {
+        //the form wrapper (includes all forms)
+        var $form_wrapper = $('#form_wrapper'),
+            //the current form is the one with class active
+            $currentForm = $form_wrapper.children('form.active'),
+            $navbar = $('#vert-navbar'),
+            //the change form links
+            $linkform = $navbar.find('.linkform');
+
+        //get width and height of each form and store them for later
+        $form_wrapper.children('form').each(function (i) {
+            var $theForm = $(this);
+            //solve the inline display none problem when using fadeIn fadeOut
+            if (!$theForm.hasClass('active'))
+                $theForm.hide();
+            $theForm.data({
+                width: $theForm.width(),
+                height: $theForm.height()
+            });
+        });
+
+        //set width and height of wrapper (same of current form)
+        setWrapperWidth();
+
+        /*
+        clicking a link (change form event) in the form
+        makes the current form hide.
+        The wrapper animates its width and height to the
+        width and height of the new current form.
+        After the animation, the new form is shown
+        */
+        $linkform.bind('click', function (e) {
+            var $link = $(this);
+            var target = $link.attr('id');
+            $currentForm.fadeOut(400, function () {
+                //remove class active from current form
+                $currentForm.removeClass('active');
+                //new current form
+                $currentForm = $form_wrapper.children('form.' + target);
+                //animate the wrapper
+                $form_wrapper.stop()
+                             .animate({
+                                 width: $currentForm.data('width') + 'px',
+                                 height: $currentForm.data('height') + 'px'
+                             }, 500, function () {
+                                 //new form gets class active
+                                 $currentForm.addClass('active');
+                                 //show the new form
+                                 $currentForm.fadeIn(400);
+                                 $currentForm.find('input').focus();
+                             });
+            });
+            e.preventDefault();
+        });
+
+        function setWrapperWidth() {
+            $form_wrapper.css({
+                width: $currentForm.data('width') + 'px',
+                height: $currentForm.data('height') + 'px'
+            });
+        }
+
+        /*
+        for the demo we disabled the submit buttons
+        if you submit the form, you need to check the
+        which form was submited, and give the class active
+        to the form you want to show
+        */
+        $form_wrapper.find('input[type="submit"]')
+                     .click(function (e) {
+                         e.preventDefault();
+                     });
+    });
+</script>

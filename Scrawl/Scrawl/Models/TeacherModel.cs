@@ -12,6 +12,6 @@ namespace Scrawl.Models
     {
         public string Name { get; set; }
         public string School { get; set; }
-        public CourseModel[] Courses { get; set; }
+        public CourseModel[] Courses { get; set; }  
     }
 }
